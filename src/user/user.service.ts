@@ -3,7 +3,7 @@ import {
   Injectable,
   NotFoundException,
 } from '@nestjs/common';
-import { EmailValidationException } from '../../src/utils';
+import { EmailValidationException } from '../../src/utils/index';
 import { CreateUserDto } from '../user/dto/create-user.dto';
 import { hash } from 'bcrypt';
 //import * as nodemailer from 'nodemailer';
