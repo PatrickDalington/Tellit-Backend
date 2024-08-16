@@ -3,7 +3,6 @@ import {
   Injectable,
   NotFoundException,
 } from '@nestjs/common';
-import { EmailValidationException } from '../../src/utils/index';
 import { CreateUserDto } from '../user/dto/create-user.dto';
 import { hash } from 'bcrypt';
 //import * as nodemailer from 'nodemailer';
@@ -28,7 +27,7 @@ export class UserService {
   async create(createUserDto: CreateUserDto) {
     // Validate email
     if (!validateEmail(createUserDto.email)) {
-      throw new EmailValidationException();
+      return 'Email incorrect';
     } else if (!createUserDto.email) {
       return 'Email is required';
     }
